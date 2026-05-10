@@ -42,10 +42,28 @@ else:  # Linux
 plt.rcParams["axes.unicode_minus"] = False  # 마이너스 기호 깨짐 방지
 
 
-DATA_DIR = Path(
-    r"c:\Users\ilkyu\OneDrive\Desktop\김일균\간호대학원\5학기\의료인공지능개론\커서 실습\data\mit_bih_preprocessed"
-)
-MODEL_DIR = DATA_DIR / "cnn_model"
+BASE_DIR = Path(__file__).resolve().parent
+
+
+def resolve_data_dir() -> Path:
+    """로컬과 Streamlit Cloud에서 모두 동작하도록 데이터 폴더를 찾습니다."""
+    env_data_dir = os.environ.get("ECG_DATA_DIR")
+    if env_data_dir:
+        return Path(env_data_dir)
+
+    candidates = [
+        BASE_DIR / "data" / "mit_bih_preprocessed",  # Streamlit Cloud/GitHub 배포용
+        BASE_DIR.parent / "data" / "mit_bih_preprocessed",  # 현재 로컬 작업 폴더 구조
+    ]
+    for candidate in candidates:
+        if candidate.exists():
+            return candidate
+
+    return candidates[0]
+
+
+DATA_DIR = resolve_data_dir()
+MODEL_DIR = Path(os.environ.get("ECG_MODEL_DIR", DATA_DIR / "cnn_model"))
 RANDOM_SEED = 42
 DEFAULT_FS = 360.0
 PRE_R_SECONDS = 0.2

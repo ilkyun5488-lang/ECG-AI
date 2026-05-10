@@ -40,10 +40,28 @@ if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8")
 
 
-DATA_DIR = Path(
-    r"c:\Users\ilkyu\OneDrive\Desktop\김일균\간호대학원\5학기\의료인공지능개론\커서 실습\data\mit_bih_preprocessed"
-)
-MODEL_DIR = DATA_DIR / "cnn_model"
+BASE_DIR = Path(__file__).resolve().parent
+
+
+def resolve_data_dir() -> Path:
+    """로컬과 배포 환경에서 모두 동작하도록 데이터 폴더를 찾습니다."""
+    env_data_dir = os.environ.get("ECG_DATA_DIR")
+    if env_data_dir:
+        return Path(env_data_dir)
+
+    candidates = [
+        BASE_DIR / "data" / "mit_bih_preprocessed",
+        BASE_DIR.parent / "data" / "mit_bih_preprocessed",
+    ]
+    for candidate in candidates:
+        if candidate.exists():
+            return candidate
+
+    return candidates[0]
+
+
+DATA_DIR = resolve_data_dir()
+MODEL_DIR = Path(os.environ.get("ECG_MODEL_DIR", DATA_DIR / "cnn_model"))
 OUTPUT_DIR = MODEL_DIR / "explainable_pac"
 
 PAC_LABEL = 1

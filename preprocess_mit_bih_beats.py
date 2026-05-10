@@ -4,6 +4,7 @@ from collections import Counter
 from pathlib import Path
 import csv
 import json
+import os
 import platform
 import random
 import sys
@@ -37,8 +38,12 @@ if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8")
 
 
+BASE_DIR = Path(__file__).resolve().parent
 ZIP_PATH = Path(
-    r"c:\Users\ilkyu\OneDrive\Desktop\김일균\간호대학원\5학기\의료인공지능개론\커서 실습\data\mit-bih-arrhythmia-database-1.0.0.zip"
+    os.environ.get(
+        "MIT_BIH_ZIP_PATH",
+        BASE_DIR.parent / "data" / "mit-bih-arrhythmia-database-1.0.0.zip",
+    )
 )
 EXTRACT_DIR = ZIP_PATH.with_suffix("")
 OUTPUT_DIR = ZIP_PATH.parent / "mit_bih_preprocessed"
