@@ -1,8 +1,5 @@
 streamlit
-tensorflow
-numpy
 matplotlib
-scikit-learn
-wfdb
-opencv-python-headless
+pandas
+numpy
 pillow
