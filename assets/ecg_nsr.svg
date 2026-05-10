@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360">
+  <defs>
+    <pattern id="gridSmall" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(220,60,80,0.18)" stroke-width="1"/>
+    </pattern>
+    <pattern id="gridBig" width="100" height="100" patternUnits="userSpaceOnUse">
+      <rect width="100" height="100" fill="url(#gridSmall)"/>
+      <path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(220,60,80,0.28)" stroke-width="2"/>
+    </pattern>
+    <filter id="softShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="rgba(0,0,0,0.25)"/>
+    </filter>
+  </defs>
+
+  <rect x="0" y="0" width="1200" height="360" rx="18" fill="#fffdfd"/>
+  <rect x="0" y="0" width="1200" height="360" rx="18" fill="url(#gridBig)"/>
+
+  <g filter="url(#softShadow)">
+    <!-- P!� � : �Y, P + �@ QRS -->
+    <path
+      d="M 40 190
+         L 120 190
+         C 138 190, 146 175, 158 175
+         C 170 175, 176 190, 186 190
+         L 214 190
+         C 224 190, 232 160, 244 160
+         C 254 160, 258 210, 268 210
+         C 276 210, 284 190, 296 190
+         L 360 190
+         C 378 190, 386 175, 398 175
+         C 410 175, 416 190, 426 190
+         L 454 190
+         C 464 190, 472 160, 484 160
+         C 494 160, 498 210, 508 210
+         C 516 210, 524 190, 536 190
+         L 600 190
+         C 618 190, 626 175, 638 175
+         C 650 175, 656 190, 666 190
+         L 694 190
+         C 704 190, 712 160, 724 160
+         C 734 160, 738 210, 748 210
+         C 756 210, 764 190, 776 190
+         L 840 190
+         C 858 190, 866 175, 878 175
+         C 890 175, 896 190, 906 190
+         L 934 190
+         C 944 190, 952 160, 964 160
+         C 974 160, 978 210, 988 210
+         C 996 210, 1004 190, 1016 190
+         L 1160 190"
+      fill="none"
+      stroke="#111827"
+      stroke-width="6"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </g>
+
+  <g font-family="system-ui, -apple-system, Segoe UI, sans-serif">
+    <text x="34" y="52" font-size="30" font-weight="800" fill="#111827">��(� (NSR)</text>
+    <text x="34" y="84" font-size="18" fill="rgba(17,24,39,0.68)">P!� � t��</text>
+  </g>
+</svg>
+

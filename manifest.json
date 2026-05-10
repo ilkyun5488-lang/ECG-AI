@@ -1,0 +1,12 @@
+{
+  "name": "심전도 학습(부정맥)",
+  "short_name": "심전도학습",
+  "start_url": "./index.html#/menu",
+  "display": "standalone",
+  "background_color": "#0b1220",
+  "theme_color": "#0b1220",
+  "icons": [
+    { "src": "./assets/icon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}
+

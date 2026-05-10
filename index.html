@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#0b1220" />
+    <meta name="description" content="간호사를 위한 심전도(부정맥) 학습 앱" />
+
+    <link rel="manifest" href="./manifest.json" />
+    <link rel="icon" href="./assets/icon.svg" />
+    <link rel="apple-touch-icon" href="./assets/icon.svg" />
+
+    <title>심전도 학습(부정맥)</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+
+  <body>
+    <div class="app">
+      <header class="topbar">
+        <div class="topbar__title">심전도 학습(부정맥)</div>
+        <div class="topbar__subtitle">간호사 교육용 · 참고용</div>
+      </header>
+
+      <main id="root" class="content" aria-live="polite"></main>
+
+      <footer class="footer">
+        <div class="disclaimer">
+          본 앱은 교육용이며 참고용으로만 사용하시기 바랍니다.
+          의학적인 자문이나 진단이 필요한 경우 전문가에게 문의하세요.
+        </div>
+      </footer>
+    </div>
+
+    <script src="./app.js" defer></script>
+  </body>
+</html>
+

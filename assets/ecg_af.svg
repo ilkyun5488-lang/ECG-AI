@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360">
+  <defs>
+    <pattern id="gridSmall" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(220,60,80,0.18)" stroke-width="1"/>
+    </pattern>
+    <pattern id="gridBig" width="100" height="100" patternUnits="userSpaceOnUse">
+      <rect width="100" height="100" fill="url(#gridSmall)"/>
+      <path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(220,60,80,0.28)" stroke-width="2"/>
+    </pattern>
+    <filter id="softShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="rgba(0,0,0,0.25)"/>
+    </filter>
+  </defs>
+
+  <rect x="0" y="0" width="1200" height="360" rx="18" fill="#fffdfd"/>
+  <rect x="0" y="0" width="1200" height="360" rx="18" fill="url(#gridBig)"/>
+
+  <g filter="url(#softShadow)">
+    <!-- P!� � : ��Y\ R-R + P ��U(�<� ��) -->
+    <path
+      d="M 40 195
+         C 70 188, 100 202, 130 194
+         C 160 186, 190 206, 220 196
+         C 250 186, 280 206, 310 196
+         C 340 186, 370 206, 400 196
+         C 430 186, 460 206, 490 196
+         C 520 186, 550 206, 580 196
+         C 610 186, 640 206, 670 196
+         C 700 186, 730 206, 760 196
+         C 790 186, 820 206, 850 196
+         C 880 186, 910 206, 940 196
+         C 970 186, 1000 206, 1030 196
+         C 1060 186, 1090 206, 1120 196
+         C 1140 190, 1150 200, 1160 196"
+      fill="none"
+      stroke="rgba(17,24,39,0.45)"
+      stroke-width="4"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+
+    <path
+      d="M 80 195
+         L 150 195
+         C 158 195, 166 165, 176 165
+         C 184 165, 190 215, 200 215
+         C 206 215, 214 195, 224 195
+         L 270 195
+         C 280 195, 288 170, 300 170
+         C 308 170, 314 220, 324 220
+         C 330 220, 338 195, 350 195
+         L 430 195
+         C 442 195, 450 160, 462 160
+         C 470 160, 476 225, 486 225
+         C 492 225, 500 195, 512 195
+         L 600 195
+         C 612 195, 620 170, 632 170
+         C 640 170, 646 220, 656 220
+         C 662 220, 670 195, 682 195
+         L 760 195
+         C 772 195, 780 160, 792 160
+         C 800 160, 806 225, 816 225
+         C 822 225, 830 195, 842 195
+         L 920 195
+         C 932 195, 940 170, 952 170
+         C 960 170, 966 220, 976 220
+         C 982 220, 990 195, 1002 195
+         L 1160 195"
+      fill="none"
+      stroke="#111827"
+      stroke-width="6"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </g>
+
+  <g font-family="system-ui, -apple-system, Segoe UI, sans-serif">
+    <text x="34" y="52" font-size="30" font-weight="800" fill="#111827">�)8� (A-fib)</text>
+    <text x="34" y="84" font-size="18" fill="rgba(17,24,39,0.68)">P!� � t��</text>
+  </g>
+</svg>
+
