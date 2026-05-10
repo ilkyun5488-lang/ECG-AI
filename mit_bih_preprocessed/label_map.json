@@ -1,0 +1,20 @@
+{
+  "label_map": {
+    "N": 0,
+    "A": 1,
+    "V": 2
+  },
+  "label_description": {
+    "N": "정상 박동",
+    "A": "PAC, 심방조기수축",
+    "V": "PVC, 심실조기수축"
+  },
+  "pre_r_seconds": 0.2,
+  "post_r_seconds": 0.4,
+  "normalization": "각 심박 조각마다 min-max 정규화로 0~1 범위 변환",
+  "shape_meaning": "(샘플 수, 한 심박의 time step 수, 채널 수)",
+  "preferred_lead": "MLII",
+  "include_x_records": false,
+  "test_ratio": 0.2,
+  "random_seed": 42
+}

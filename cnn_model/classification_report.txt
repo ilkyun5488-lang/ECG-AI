@@ -1,0 +1,21 @@
+=== Test 성능 ===
+Test Loss: 0.0871
+Test Accuracy: 0.9747
+
+=== Confusion Matrix ===
+[[14700   151   155]
+ [   73   432     4]
+ [   43     3  1380]]
+
+=== Classification Report ===
+                 precision    recall  f1-score   support
+
+      N (정상 박동)     0.9922    0.9796    0.9858     15006
+A (PAC, 심방조기수축)     0.7372    0.8487    0.7890       509
+V (PVC, 심실조기수축)     0.8967    0.9677    0.9309      1426
+
+       accuracy                         0.9747     16941
+      macro avg     0.8754    0.9320    0.9019     16941
+   weighted avg     0.9765    0.9747    0.9753     16941
+
+PAC(A) 확인: 실제 PAC 509개 중 432개를 PAC로 맞춤. PAC recall=0.8487
