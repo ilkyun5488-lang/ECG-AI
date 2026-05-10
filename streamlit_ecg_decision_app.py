@@ -291,24 +291,33 @@ def initialize_input_mode() -> None:
     if query_mode is not None:
         st.session_state.input_mode = query_mode
     if "input_mode" not in st.session_state:
-        st.session_state.input_mode = "심전도 학습 데이터"
+        st.session_state.input_mode = None
 
 
 def render_mode_buttons() -> None:
     """메인 화면에서 판독 모드로 매끄럽게 넘어가는 버튼을 표시합니다."""
-    col_sample, col_upload, col_camera = st.columns(3)
-    with col_sample:
-        if st.button("학습 데이터로 테스트", use_container_width=True):
+    col_learning, col_camera = st.columns(2)
+    with col_learning:
+        if st.button("1. 심전도 학습", use_container_width=True):
             st.session_state.input_mode = "심전도 학습 데이터"
             st.rerun()
-    with col_upload:
-        if st.button("파형 파일 업로드", use_container_width=True):
-            st.session_state.input_mode = "파일 업로드"
-            st.rerun()
     with col_camera:
-        if st.button("카메라로 찾기", use_container_width=True, type="primary"):
+        if st.button("2. 카메라로 찾기", use_container_width=True, type="primary"):
             st.session_state.input_mode = "카메라로 찾기"
             st.rerun()
+
+
+def render_landing_page() -> None:
+    """앱 첫 화면에서 두 가지 큰 선택지를 안내합니다."""
+    st.info("먼저 위에서 `심전도 학습` 또는 `카메라로 찾기`를 선택해 주세요.")
+    st.markdown(
+        """
+        - **심전도 학습**: 전처리된 MIT-BIH 테스트 샘플로 AI 판독 흐름을 연습합니다.
+        - **카메라로 찾기**: 심전도 사진을 촬영하거나 업로드해 1D 파형으로 변환한 뒤 AI 판독을 시도합니다.
+
+        카메라 AI 판독은 TensorFlow 모델이 정상 설치되어 있어야 작동합니다.
+        """
+    )
 
 
 @st.cache_resource
@@ -765,10 +774,16 @@ def main() -> None:
     initialize_input_mode()
     render_mode_buttons()
 
+    if st.session_state.input_mode is None:
+        render_landing_page()
+        render_footer()
+        st.stop()
+
     if keras is None:
         st.error(
             "TensorFlow가 설치된 환경에서 실행해야 합니다. "
-            "모델 학습에 사용한 가상환경을 활성화한 뒤 `streamlit run streamlit_ecg_decision_app.py`를 실행해 주세요."
+            "Streamlit Cloud라면 저장소 루트의 `requirements.txt`에 `tensorflow`가 포함되어 있는지 확인하고, "
+            "`Manage app → Clear cache and reboot`를 실행해 주세요."
         )
         st.stop()
 
